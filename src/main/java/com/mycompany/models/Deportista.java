@@ -5,7 +5,11 @@
  */
 package com.mycompany.models;
 
+import com.mycompany.models.Persona;
 import java.sql.Date;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 
 /**
  *
@@ -13,101 +17,63 @@ import java.sql.Date;
  */
 public class Deportista extends Persona{
 
-     int dorsal;
-     String deporte_jugado;
-     String equipo;
-
+     IntegerProperty dorsal;
+     SimpleStringProperty deporte_jugado;
+     SimpleStringProperty equipo;
+     
     public Deportista() {
     }
 
-    public Deportista(int dorsal, String deporte_jugado, String equipo, String nombre, String nacionalidad, Date fecha_nacimiento, int altura) {
+    public Deportista(Integer dorsal, String deporte_jugado, String equipo, String nombre, String nacionalidad, Date fecha_nacimiento, Integer altura) {
         super(nombre, nacionalidad, fecha_nacimiento, altura);
-        this.dorsal = dorsal;
-        this.deporte_jugado = deporte_jugado;
-        this.equipo = equipo;
+        this.dorsal = new SimpleIntegerProperty(dorsal);
+        this.deporte_jugado = new SimpleStringProperty (deporte_jugado);
+        this.equipo = new SimpleStringProperty (equipo);
     }
     
     
-    @Override
-    public String getNombre() {
-         return nombre;
-    }
-
-    @Override
-    public void setNombre(String nombre) {
-      this.nombre=nombre;
-    }
-
-    @Override
-    public String getNacionalidad() {
-        return nacionalidad;
-    }
-
-    @Override
-    public void setNacionalidad(String nacionalidad) {
-       this.nacionalidad=nacionalidad;
-    }
-
-    @Override
-    public Date getFecha_nacimiento() {
-      return fecha_nacimiento;
-    }
-
-    @Override
-    public void setFecha_nacimiento(Date fecha_nacimiento) {
-        this.fecha_nacimiento=fecha_nacimiento;
-    }
-
-    @Override
-    public int getAltura() {
-        return altura;
-    }
-
-    @Override
-    public void setAltura(int altura) {
-        this.altura=altura;
-    }
+   
 
     /**
      * @return the dorsal
      */
-    public int getDorsal() {
-        return dorsal;
+    public Integer getDorsal() {
+        return dorsal.get();
     }
 
     /**
      * @param dorsal the dorsal to set
      */
     public void setDorsal(int dorsal) {
-        this.dorsal = dorsal;
+        this.dorsal = new SimpleIntegerProperty(dorsal);
     }
 
     /**
      * @return the deporte_jugado
      */
     public String getDeporte_jugado() {
-        return deporte_jugado;
+        return deporte_jugado.get();
     }
 
     /**
      * @param deporte_jugado the deporte_jugado to set
      */
     public void setDeporte_jugado(String deporte_jugado) {
-        this.deporte_jugado = deporte_jugado;
+        this.deporte_jugado = new SimpleStringProperty (deporte_jugado);
     }
 
     /**
      * @return the equipo
      */
     public String getEquipo() {
-        return equipo;
+        return equipo.get();
     }
 
     /**
      * @param equipo the equipo to set
      */
     public void setEquipo(String equipo) {
-        this.equipo = equipo;
+        this.equipo = new SimpleStringProperty (equipo);
     }
     
 }
